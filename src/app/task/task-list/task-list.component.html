@@ -1,0 +1,49 @@
+<div class="container">
+    <table *ngIf="Task.length">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due</th>
+            <th>update status</th>
+        </tr>
+        <tr *ngFor="let x of Task;let index = index;">
+            <td>{{x.title}}</td>
+            
+            <td>{{x.desc}}</td>
+            <td>{{x.date}}</td>
+            <td>
+                <mat-icon [ngStyle]="{'color':'green'}" (click)="statusUpdate(x,index)">check_box</mat-icon>
+            </td>
+           
+            <td>
+                <mat-icon (click)="openDialog(x,index)">edit</mat-icon>
+                <mat-icon [ngStyle]="{'color':'red'}" (click)="del(index)">delete</mat-icon>
+            </td> 
+            <!-- <td><button (click)="statusUpdate(x,index)"> Done</button></td>
+            <td><button (click)="openDialog(x,index)">EDIT</button><button (click)="del(index)">DELETE</button></td>        -->
+        </tr>
+    </table>
+    <div *ngIf="!Task.length"> No pending Task..</div>
+    <div *ngIf="completedTask.length" class="below">
+        <h1>Completed task</h1>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let x of completedTask;let index = index;">
+                <td>{{x.title}}</td>
+                
+                <td>{{x.desc}}</td>
+                <td>{{x.date}}</td>
+                <td>
+                    <mat-icon [ngStyle]="{'color':'green'}">check_box</mat-icon>
+                </td>    
+            </tr>
+        </table> 
+
+    </div>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <table *ngIf="Task.length">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let x of Task;let index = index;">
+            <td>{{x.title}}</td>
+            <td>{{x.desc}}</td>
+            <td>{{x.date}}</td>
+            <td><p *ngIf="x.pending" style="color:red">Pending</p><p *ngIf="!x.pending" style="color:green">Completed</p></td>
+        </tr>
+    </table>
+    <div *ngIf="!Task.length"> No pending Task..</div>
+
+</div>

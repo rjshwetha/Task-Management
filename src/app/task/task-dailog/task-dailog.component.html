@@ -1,0 +1,45 @@
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Edit Task</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="todoTaskForm" (ngSubmit)="add()" class="example-form"> 
+        <div class="example-full-width">
+            <input id="title" type="text" value={{data.title}} formControlName="title" >
+        </div>
+        <div class="example-full-width">
+            <textarea  value={{data.title}} formControlName="desc"></textarea>
+        </div>
+        <div class="example-full-width">
+            <label>Due Date</label><input type="date"  value={{data.title}} formControlName="date">
+        </div>
+        <div>
+            <button>ADD</button>
+        </div>
+    </form>
+</mat-card> -->
+
+
+
+<mat-card class="example-card">
+   
+    <mat-icon (click)="onCloseClick()">close</mat-icon>
+
+<h1 mat-dialog-title class="center">Edit Task </h1>
+<div mat-dialog-content>
+<form [formGroup]="todoTaskForm" (ngSubmit)="add()" class="example-form"> 
+    <mat-form-field>
+        <input matInput [style.width.%]="100" id="title" type="text" value={{data.title}} formControlName="title" >
+  </mat-form-field>
+    <mat-form-field>
+        <textarea matInput [style.width.%]="100" value={{data.title}} formControlName="desc"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [style.width.%]="100" type="date"   formControlName="date">
+    </mat-form-field>
+    <div>
+        <button  mat-button matTooltip="Edit Task" [disabled]="todoTaskForm.invalid">ADD</button>
+    </div>
+</form>
+</div>
+</mat-card>
+
